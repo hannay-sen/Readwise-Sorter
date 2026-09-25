@@ -29,5 +29,21 @@ if st.button("Sort by reading level", type="primary"):
         st.warning("Paste at least one passage to score.")
     else:
         st.subheader(f"{len(results)} passage(s), easiest first")
+
+ table = pd.DataFrame([{
+            "Level": f"{r['level']} · {r['level_name']}",
+            "Grade": r["grade"],
+            "Reading ease": r["reading_ease"],
+            "Words": r["words"],
+            "Preview": r["passage"][:60] + ("…" if len(r["passage"]) > 60 else ""),
+        } for r in results])
+        st.dataframe(table, hide_index=True, width="stretch")
+ 
+        for r in results:
+            with st.expander(f"Level {r['level']} ({r['level_name']}) · passage {r['original_order']}"):
+                st.write(r["passage"])
+                st.caption(f"Grade {r['grade']} · {r['words']} words · {r['sentences']} sentences")
+                if r["hard_words"]:
+                    st.write("Words to pre-teach: " + ", ".join(sorted(r["hard_words"])))
  
        
