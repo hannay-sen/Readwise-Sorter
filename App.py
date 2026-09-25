@@ -14,3 +14,9 @@ st.write(
     "To match readings to students at different levels."
 )
  
+if "text" not in st.session_state:
+    st.session_state.text = ""
+ 
+if st.button("Load example passages"):
+    st.session_state.text = EXAMPLE
+ 
