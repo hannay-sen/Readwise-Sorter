@@ -13,6 +13,16 @@ st.write(
     "The tool scores each one and sorts them from easiest to hardest, "
     "To match readings to students at different levels."
 )
+
+EXAMPLE = """My name is Hannay. I like to learn new words. I use an app on my phone. I learn a little every day.
+ 
+I taught English to students online. Some of them could already read well, but others were just beginning. Every day, I tried to choose the right story for each student.
+ 
+In August 2024, floods closed every English test center near me. My college deadline was only a week away, so I took the Duolingo English Test from home and made it in time.
+ 
+Today I study computer science in California, where I focus on machine learning. This summer, I built a research pipeline that transformed raw sleep recordings into structured data for classification models.
+ 
+This application estimates passage difficulty using established readability formulas, enabling educators to systematically differentiate instruction across heterogeneous classrooms containing learners with substantially different proficiency levels."""
  
 if "text" not in st.session_state:
     st.session_state.text = ""
