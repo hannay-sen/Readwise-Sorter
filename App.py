@@ -20,3 +20,14 @@ if "text" not in st.session_state:
 if st.button("Load example passages"):
     st.session_state.text = EXAMPLE
  
+text = st.text_area("Passages", key="text", height=250,
+                    placeholder="Paste your passages here…")
+ 
+if st.button("Sort by reading level", type="primary"):
+    results = score_all(text)
+    if not results:
+        st.warning("Paste at least one passage to score.")
+    else:
+        st.subheader(f"{len(results)} passage(s), easiest first")
+ 
+       
