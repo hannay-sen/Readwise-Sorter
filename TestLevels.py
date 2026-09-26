@@ -12,7 +12,8 @@ def test_split_passages():
     assert split_passages("   ") == []
 
 def test_sorted_easiest_first():
-    text = ()
+    text = ("This application estimates passage difficulty using established readability formulas, enabling educators to systematically differentiate instruction.\n\n"
+            "My name is Hannay. I like to learn new words.")
     results = score_all(text)
     assert results[0]["original_order"] == 2
     assert results[0]["grade"] <= results[1]["grade"]
